@@ -53,7 +53,7 @@
 
     <dl>
         <dt>@Messages("seller")</dt>
-        <dd>@seller.name</dd>
+        <dd>@seller.username</dd>
 
         <dt>@Messages("currency")</dt>
         <dd>@currency.getDisplayName</dd>
@@ -89,7 +89,7 @@
         @for(w <- winner) {
             @if(currentUser == item.creator || currentUser == w) {
                 <dt>@Messages("auctionWinner")</dt>
-                <dd>@w.name</dd>
+                <dd>@w.username</dd>
             }
         }
     }

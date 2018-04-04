@@ -8,8 +8,8 @@
 @(status: ItemStatus.Status, paginatedItems: PaginatedSequence[ItemSummary])(implicit nav: Nav, request: RequestHeader)
 
 @for(user <- nav.user) {
-    @main(user.name) {
-        <h1>@user.name</h1>
+    @main(user.username) {
+        <h1>@user.username</h1>
 
         <div class="row">
             <ul class="menu vertical large-3 columns">

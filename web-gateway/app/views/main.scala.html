@@ -24,10 +24,10 @@
                 <ul class="menu dropdown" data-dropdown-menu>
                     <li>
                         <a href="@routes.ProfileController.myItems(ItemStatus.Created.toString.toLowerCase(Locale.ENGLISH), None, None)">
-                            @nav.user.map(_.name).getOrElse(Messages("logInAs"))</a>
+                            @nav.user.map(_.username).getOrElse(Messages("logInAs"))</a>
                         <ul class="menu vertical">
                         @for(user <- nav.users) {
-                            <li><a href="#" data-user-id="@user.id" data-csrf-token="@CSRF.getToken.value" class="log-in-as">@user.name</a></li>
+                            <li><a href="#" data-user-id="@user.id" data-csrf-token="@CSRF.getToken.value" class="log-in-as">@user.username</a></li>
                         }
                         </ul>
                     </li>

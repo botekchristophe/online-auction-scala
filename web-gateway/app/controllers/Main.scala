@@ -3,7 +3,7 @@ package controllers
 import java.util.{ Locale, UUID }
 
 import com.example.auction.item.api.ItemStatus
-import com.example.auction.user.api.{ CreateUser, UserService }
+import com.example.auction.user.api.{ UserCreationRequest, UserService }
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.mvc.ControllerComponents
@@ -40,7 +40,7 @@ class Main(userService: UserService, controllerComponents: ControllerComponents)
         })
       },
       createUserForm => {
-        userService.createUser.invoke(CreateUser(createUserForm.name))
+        userService.createUser.invoke(UserCreationRequest(createUserForm.name))
           .map { user =>
           Redirect(routes.ProfileController.myItems(ItemStatus.Completed.toString.toLowerCase(Locale.ENGLISH), None, None))
             .withSession("user" -> user.id.toString)
